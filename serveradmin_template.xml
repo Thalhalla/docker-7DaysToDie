@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adminTools>
+        <admins>
+                <admin steamID="76561198048566181" permission_level="1000" />
+        </admins>
+        <permissions>
+                <permission cmd="lp" permission_level="3" />
+                <permission cmd="cm" permission_level="500" />
+        </permissions>
+</adminTools>
