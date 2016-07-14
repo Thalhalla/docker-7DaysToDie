@@ -1,5 +1,5 @@
 FROM thalhalla/steamer
-MAINTAINER James S. Moore <james 'at' ohmydocker com>
+MAINTAINER James S. Moore <james 'at' ohmydocker com>, Josh Cox <josh 'at' webhost coop>
 
 USER root
 ENV 7DTDocker 0.0.8_A17.1
