@@ -2,6 +2,7 @@
 <adminTools>
         <admins>
                 <admin steamID="76561198048566181" permission_level="1000" />
+                <admin steamID="76561198048688538" permission_level="1000" />
         </admins>
         <permissions>
                 <permission cmd="lp" permission_level="3" />

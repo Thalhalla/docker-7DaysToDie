@@ -26,11 +26,11 @@ y joined with -->
 
   <property name="ControlPanelEnabled"          value="false"/>                         <!-- Enable/Disable the control panel -->
   <property name="ControlPanelPort"             value="10080"/>                          <!-- Port of the control panel webpage -->
-  <property name="ControlPanelPassword"         value="asgard1776!"/>                      <!-- Password to gain entry to the control panel -->
+  <property name="ControlPanelPassword"         value="REPLACEME_CONTROLPANEL_PASSWORD"/>                      <!-- Password to gain entry to the control panel -->
 
   <property name="TelnetEnabled"                        value="true"/>                          <!-- Enable/Disable the telnet -->
 <property name="TelnetPort"                           value="10081"/>                          <!-- Port of the telnet server -->
-  <property name="TelnetPassword"                       value="asgard1776!"/>                      <!-- Password to gain entry to telnet interface -->
+  <property name="TelnetPassword"                       value="REPLACEME_TELNET_PASSWORD"/>                      <!-- Password to gain entry to telnet interface -->
 
   <property name="AdminFileName"                        value="serveradmin.xml"/>       <!-- Server admin file name -->
 
