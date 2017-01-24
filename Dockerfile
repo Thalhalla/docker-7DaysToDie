@@ -11,7 +11,7 @@ USER root
 COPY assets /assets
 RUN chmod 755 /assets/*.sh && \
 chmod 755 /assets/*.cfg && \
-chmod 755 /assets/*.xml && \
+chmod 755 /assets/cfg/*.xml && \
 chmod 755 /assets/steamer.txt && \
 chown -R steam. /home/steam 
 
