@@ -1,10 +1,11 @@
 FROM thalhalla/steamer
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-ENV DOCKER7DAYSTODIE 20170123
+ENV DOCKER7DAYSTODIE 20170125
 
 # override these variables in with the prompts
 ENV STEAM_GID 294420
+ENV STEAM_FORCE_INSTALL /home/steam/7DaysToDie
 
 USER root
 # and override this file with the command to start your server
