@@ -13,11 +13,10 @@ RUN chmod 755 /assets/*.sh && \
 chmod 755 /assets/*.cfg && \
 chmod 755 /assets/cfg/*.xml && \
 chmod 755 /assets/steamer.txt && \
-chown -R steam. /home/steam 
+chown -R steam. /home/steam
 
 USER steam
 WORKDIR /opt/steamer
-# RUN wget -q https://gameservermanagers.com/dl/arma3server
 WORKDIR /home/steam
 
 CMD ["/bin/bash",  "/assets/valve-start.sh"]
