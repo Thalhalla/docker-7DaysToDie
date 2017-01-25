@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/steam/
+cd $STEAM_FORCE_INSTALL
 
 cp /assets/cfg/serveradmin_template.xml ./
 cp /assets/cfg/serverconfig_template.xml ./
