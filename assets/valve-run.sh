@@ -2,7 +2,7 @@
 
 /bin/bash /assets/config.sh
 
-cd /home/steam/7daystodie
+cd $STEAM_FORCE_INSTALL
 ./sdtdserver start
 echo "started server"
 sleep 10

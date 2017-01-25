@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo chown -R steam:steam /home/steam
-mkdir -p /home/steam/7DaysToDie
+mkdir -p $STEAM_FORCE_INSTALL
 cp /assets/steamer.txt /home/steam/
 cd /home/steam
 sed -i "s/REPLACEME_USERNAME/$STEAM_USERNAME/" steamer.txt
