@@ -6,7 +6,7 @@ cd $STEAM_FORCE_INSTALL
 while [ 1 ]
 do
     ./startserver.sh -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated
-    sleep 3
+    sleep 300
     echo "-= Restarting 7 Days to Die Dedicated Server =-"
     sleep 3
 done
