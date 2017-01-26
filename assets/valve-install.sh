@@ -9,5 +9,5 @@ sed -i "s/REPLACEME_PASSWORD/$STEAM_PASSWORD/" steamer.txt
 sed -i "s/REPLACEME_GID/$STEAM_GID/" steamer.txt
 sed -i "s/REPLACEME_FORCE_INSTALL/$STEAM_FORCE_INSTALL/" steamer.txt
 
-./steamcmd.sh +runscript $STEAM_FORCE_INSTALL/steamer.txt
+$STEAM_CMD_PATH/steamcmd.sh +runscript $STEAM_FORCE_INSTALL/steamer.txt
 sudo chown -R steam:steam $STEAM_FORCE_INSTALL
