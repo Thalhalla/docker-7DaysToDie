@@ -2,7 +2,7 @@
 <ServerSettings>
   <property name="ServerPort"                           value="26900"/>                         <!-- Port you want the server to listen on. -->
   <property name="ServerIsPublic"                       value="true"/>                          <!-- Should this server register to master server -->
-  <property name="ServerName"                           value="Thalhalla Badlands - PvP|Dedicated|Beltdrop - Setup Underway"/>          <!-- Whatever you want the name to be. -->
+  <property name="ServerName"                           value="Thalhalla Badlands"/>          <!-- Whatever you want the name to be. -->
   <property name="ServerPassword"                       value=""/>                                      <!-- Password to gain entry to the server -->
   <property name="ServerMaxPlayerCount"         value="32"/>                                     <!-- Maximum Concurrent Players -->
   <property name="ServerDescription"            value="A 7 Days to Die server from Thalhalla Gaming"/> <!-- Whatever you want the description to be. -->
@@ -77,7 +77,7 @@ ll ever be taken). Default is 32x -->
 ill ever be taken). Default is 32x -->
   <property name="AirDropFrequency"                                             value="72"/>    <!-- How often airdrop occur in game-hours, 0 == never -->
 
-  <property name="MaxSpawnedZombies"                                    value="60"/>    <!-- Making this number too large (more than about 80) may cause servers to run at poor framerates which will 
+  <property name="MaxSpawnedZombies"                                    value="60"/>    <!-- Making this number too large (more than about 80) may cause servers to run at poor framerates which will
 effect lag and play quality for clients. -->
 
   <!--
