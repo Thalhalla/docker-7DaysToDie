@@ -17,7 +17,6 @@
   <property name="BuildCreate"                          value="false" />                                <!-- cheat mode on/off -->
   <property name="DayNightLength"                       value="50" />                           <!-- real time minutes per in game day: 50 minutes -->
   <property name="DayLightLength"                       value="18" />                           <!-- in game hours the sun shines per day: 18 hours day light per day-->
-  <property name="FriendlyFire"                         value="true" />                        <!-- Can friendly players damage each other (PvP) -->
   <property name="PersistentPlayerProfiles"     value="false" />                        <!-- If disabled a player can join with any selected profile. If true they will join with the last profile the
 y joined with -->
 
