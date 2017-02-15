@@ -19,7 +19,7 @@ chown -R steam. /home/steam
 # Install frame buffer via non-interactive apt
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-apt-get install -yqq xvfb libglu1-mesa libxcursor1 libxrandr2 && \
+apt-get install -yqq telnet xvfb libglu1-mesa libxcursor1 libxrandr2 && \
 rm -rf /var/lib/apt/lists/*
 # End non-interactive apt
 ENV DEBIAN_FRONTEND interactive
