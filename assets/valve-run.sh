@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # start a frame buffer
-sudo Xfvb &
+sudo Xvfb &
 
 # perform configuration of this server instance
 /bin/bash /assets/config.sh
