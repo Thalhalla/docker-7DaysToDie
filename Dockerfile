@@ -16,6 +16,14 @@ chmod 755 /assets/cfg/*.xml && \
 chmod 755 /assets/steamer.txt && \
 chown -R steam. /home/steam
 
+# Install frame buffer via non-interactive apt
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && \
+apt-get install -yqq xfvb && \
+rm -rf /var/lib/apt/lists/*
+# End non-interactive apt
+ENV DEBIAN_FRONTEND interactive
+
 USER steam
 WORKDIR /opt/steamer
 WORKDIR /home/steam
