@@ -8,8 +8,8 @@
   <property name="ServerDescription"            value="A 7 Days to Die server"/> <!-- Whatever you want the description to be. -->
   <property name="ServerWebsiteURL"             value="http://7daystodie.thalhalla.com/badlands/"/>                                      <!-- Website URL for the server -->
 
-  <property name="GameWorld"                            value="Navezgane"/>                     <!-- Navezgane, Random Gen -->
-  <property name="GameName"                             value="THALHALLA-BADLANDS"/>                       <!-- Whatever you want the game name to be THIS CONTROLS THE RANDOM GENERATION SEED -->
+  <property name="GameWorld"                            value="Random Gen"/>                     <!-- Navezgane, Random Gen -->
+  <property name="GameName"                             value="THALHALLA-BADLANDS-15.2"/>                       <!-- Whatever you want the game name to be THIS CONTROLS THE RANDOM GENERATION SEED -->
   <property name="GameDifficulty"                       value="4"/>                             <!-- 0 - 5, 0=easiest, 5=hardest -->
   <property name="GameMode"                             value="GameModeSurvivalMP"/>    <!-- GameModeSurvivalMP, GameModeSurvivalSP (MP has land protection) -->
 
