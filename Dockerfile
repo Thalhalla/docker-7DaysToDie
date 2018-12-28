@@ -5,7 +5,7 @@ ENV 7DTD_UPDATED 2018122701
 
 # override these variables in with the prompts
 ENV STEAM_GID 294420
-ENV STEAM_FORCE_INSTALL /home/steam/7DaysToDie
+ENV STEAM_FORCE_INSTALL /home/steamer/7DaysToDie
 ENV STEAM_CMD_PATH /opt/steamer
 
 USER root
