@@ -41,18 +41,18 @@ builddocker:
 	/usr/bin/time -v docker build -t thalhalla/7daystodie .
 
 beep:
-	@echo "beep"
-	@aplay /usr/share/sounds/alsa/Front_Center.wav
+	-@echo "beep"
+	-@aplay /usr/share/sounds/alsa/Front_Center.wav
 
 kill:
-	@docker kill `cat cid`
+	-@docker kill `cat cid`
 
 rm-steamer:
 	rm  steamer.txt
 
 rm-image:
-	@docker rm `cat cid`
-	@rm cid
+	-@docker rm `cat cid`
+	-@rm cid
 
 cleanfiles:
 	rm steam_username
