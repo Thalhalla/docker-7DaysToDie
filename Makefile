@@ -51,6 +51,7 @@ debugdocker:
 	@docker run --name=$(NAME) \
 	--cidfile="cid" \
 	-v $(TMP):/tmp \
+	-it \
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steam/.local/share/ \
