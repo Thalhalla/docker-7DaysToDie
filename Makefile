@@ -50,15 +50,11 @@ kill:
 rm-steamer:
 	rm  steamer.txt
 
-rm-name:
-	rm  name
-
 rm-image:
 	@docker rm `cat cid`
 	@rm cid
 
 cleanfiles:
-	rm name
 	rm steam_username
 	rm steam_password
 
