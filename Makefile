@@ -38,7 +38,7 @@ rundocker:
 
 
 builddocker:
-	/usr/bin/time -v docker build -t https://github.com/Thalhalla/docker-7DaysToDie.git .
+	/usr/bin/time -v docker build -t thalhalla/7daystodie .
 
 beep:
 	@echo "beep"
