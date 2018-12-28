@@ -33,6 +33,8 @@ rundocker:
 	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
+	-p $(IP):26900:26900/tcp \
+	-p $(IP):26901:26901/tcp \
 	-p $(IP):10080:10080/tcp \
 	-p $(IP):10081:10081/tcp \
 	--env STEAM_USERNAME=`cat steam_username` \
@@ -60,6 +62,8 @@ debugdocker:
 	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
+	-p $(IP):26900:26900/tcp \
+	-p $(IP):26901:26901/tcp \
 	-p $(IP):10080:10080/tcp \
 	-p $(IP):10081:10081/tcp \
 	--env STEAM_USERNAME=`cat steam_username` \
