@@ -114,3 +114,6 @@ ip:
 		@while [ -z "$$IP" ]; do \
 			read -r -p "Enter the IP address you wish to associate with this container [IP]: " IP; echo "$$IP">>ip; cat ip; \
 		done ;
+
+smoke:
+	echo '<======~'
