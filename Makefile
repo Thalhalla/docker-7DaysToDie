@@ -12,7 +12,7 @@ run: steam_username steam_password builddocker rundocker beep
 
 rundocker:
 	$(eval TMP := $(shell mktemp -d --suffix=DOCKERTMP))
-	$(eval NAME := $(shell cat NAME))	
+	$(eval NAME := $(shell cat NAME))
 	$(eval TAG := $(shell cat TAG))
 	$(eval STEAM_USERNAME := $(shell cat STEAM_USERNAME))
 	$(eval STEAM_PASSWORD := $(shell cat STEAM_PASSWORD))
@@ -38,7 +38,7 @@ rundocker:
 
 
 builddocker:
-	/usr/bin/time -v docker build -t thalhalla/7daystodie .
+	/usr/bin/time -v docker build -t https://github.com/Thalhalla/docker-7DaysToDie.git .
 
 beep:
 	@echo "beep"
@@ -83,4 +83,3 @@ steam_password:
 	@while [ -z "$$STEAM_PASSWORD" ]; do \
 		read -r -p "Enter the steam password you wish to associate with this container [STEAM_PASSWORD]: " STEAM_PASSWORD; echo "$$STEAM_PASSWORD">>steam_password; cat steam_password; \
 	done ;
-
