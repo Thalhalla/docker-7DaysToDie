@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo chown -R steam:steam /home/steam
+sudo chown -R steamer:steamer /home/steamer
 mkdir -p $STEAM_FORCE_INSTALL
 cp /assets/steamer.txt $STEAM_FORCE_INSTALL
 
@@ -12,4 +12,4 @@ sed -i "s/REPLACEME_GID/$STEAM_GID/" steamer.txt
 sed -i "s!REPLACEME_FORCE_INSTALL!$STEAM_FORCE_INSTALL!" steamer.txt
 
 $STEAM_CMD_PATH/steamcmd.sh +runscript $STEAM_FORCE_INSTALL/steamer.txt
-sudo chown -R steam:steam $STEAM_FORCE_INSTALL
+sudo chown -R steamer:steamer $STEAM_FORCE_INSTALL
