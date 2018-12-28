@@ -27,8 +27,8 @@ rundocker:
 	-v $(TMP):/tmp \
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
-	-v /exports/gamedata/7dtd:/home/steam/.local/share/ \
-	-v /home/steam/.steam/:/home/steam/.steam \
+	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
+	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
 	-p $(IP):10080:10080/tcp \
@@ -54,8 +54,8 @@ debugdocker:
 	-it \
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
-	-v /exports/gamedata/7dtd:/home/steam/.local/share/ \
-	-v /home/steam/.steam/:/home/steam/.steam \
+	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
+	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
 	-p $(IP):10080:10080/tcp \
