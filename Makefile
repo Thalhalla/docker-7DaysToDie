@@ -10,6 +10,8 @@ build: builddocker beep
 
 run: steam_username steam_password ip builddocker rundocker beep
 
+debug: steam_username steam_password ip builddocker debugdocker
+
 rundocker:
 	$(eval TMP := $(shell mktemp -d --suffix=DOCKERTMP))
 	$(eval NAME := $(shell cat NAME))
@@ -35,6 +37,33 @@ rundocker:
 	--env STEAM_PASSWORD=`cat steam_password` \
 	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
 	-t thalhalla/7daystodie
+
+debugdocker:
+	$(eval TMP := $(shell mktemp -d --suffix=DOCKERTMP))
+	$(eval NAME := $(shell cat NAME))
+	$(eval TAG := $(shell cat TAG))
+	$(eval STEAM_USERNAME := $(shell cat STEAM_USERNAME))
+	$(eval STEAM_PASSWORD := $(shell cat STEAM_PASSWORD))
+	$(eval IP := $(shell cat IP))
+	$(eval TARGET_IP := $(shell cat TARGET_IP))
+	$(eval SERVER_PASSWORD := $(shell cat SERVER_PASSWORD))
+	chmod 777 $(TMP)
+	@docker run --name=$(NAME) \
+	--cidfile="cid" \
+	-v $(TMP):/tmp \
+	-v /var/run/docker.sock:/run/docker.sock \
+	-v $(shell which docker):/bin/docker \
+	-v /exports/gamedata/7dtd:/home/steam/.local/share/ \
+	-v /home/steam/.steam/:/home/steam/.steam \
+	-p $(IP):26900:26900/udp \
+	-p $(IP):26901:26901/udp \
+	-p $(IP):10080:10080/tcp \
+	-p $(IP):10081:10081/tcp \
+	--env STEAM_USERNAME=`cat steam_username` \
+	--env STEAM_PASSWORD=`cat steam_password` \
+	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
+	-t thalhalla/7daystodie \
+	/bin/bash
 
 
 builddocker:
