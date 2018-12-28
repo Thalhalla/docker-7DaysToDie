@@ -55,8 +55,8 @@ rm-image:
 	-@rm cid
 
 cleanfiles:
-	rm steam_username
-	rm steam_password
+	-@rm steam_username
+	-@rm steam_password
 
 rm: kill rm-image
 
