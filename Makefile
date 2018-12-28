@@ -116,4 +116,4 @@ ip:
 		done ;
 
 smoke:
-	echo '<======~'
+	@-echo '<======~'
