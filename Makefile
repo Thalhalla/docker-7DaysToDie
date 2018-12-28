@@ -8,7 +8,7 @@ help:
 
 build: builddocker beep
 
-run: steam_username steam_password builddocker rundocker beep
+run: steam_username steam_password ip builddocker rundocker beep
 
 rundocker:
 	$(eval TMP := $(shell mktemp -d --suffix=DOCKERTMP))
@@ -27,10 +27,10 @@ rundocker:
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steam/.local/share/ \
 	-v /home/steam/.steam/:/home/steam/.steam \
-	-p 4.31.168.84:26900:26900/udp \
-	-p 4.31.168.84:26901:26901/udp \
-	-p 4.31.168.84:10080:10080/tcp \
-	-p 4.31.168.84:10081:10081/tcp \
+	-p $(IP):26900:26900/udp \
+	-p $(IP):26901:26901/udp \
+	-p $(IP):10080:10080/tcp \
+	-p $(IP):10081:10081/tcp \
 	--env STEAM_USERNAME=`cat steam_username` \
 	--env STEAM_PASSWORD=`cat steam_password` \
 	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
@@ -83,3 +83,8 @@ steam_password:
 	@while [ -z "$$STEAM_PASSWORD" ]; do \
 		read -r -p "Enter the steam password you wish to associate with this container [STEAM_PASSWORD]: " STEAM_PASSWORD; echo "$$STEAM_PASSWORD">>steam_password; cat steam_password; \
 	done ;
+
+ip:
+		@while [ -z "$$IP" ]; do \
+			read -r -p "Enter the IP address you wish to associate with this container [IP]: " IP; echo "$$IP">>ip; cat ip; \
+		done ;
