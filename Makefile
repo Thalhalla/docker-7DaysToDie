@@ -23,6 +23,8 @@ rundocker:
 	$(eval SERVER_PASSWORD := $(shell cat SERVER_PASSWORD))
 	chmod 777 $(TMP)
 	@docker run --name=$(NAME) \
+	-it \
+	-d \
 	--cidfile="cid" \
 	-v $(TMP):/tmp \
 	-v /var/run/docker.sock:/run/docker.sock \
