@@ -14,7 +14,7 @@ COPY assets /assets
 RUN chmod 755 /assets/*.sh && \
 chmod 755 /assets/cfg/*.xml && \
 chmod 755 /assets/steamer.txt && \
-chown -R steam. /home/steam
+chown -R steamer. /home/steamer
 
 # Install frame buffer via non-interactive apt
 ENV DEBIAN_FRONTEND noninteractive
@@ -24,8 +24,8 @@ rm -rf /var/lib/apt/lists/*
 # End non-interactive apt
 ENV DEBIAN_FRONTEND interactive
 
-USER steam
+USER steamer
 WORKDIR /opt/steamer
-WORKDIR /home/steam
+WORKDIR /home/steamer
 
 CMD ["/bin/bash",  "/assets/valve-start.sh"]
