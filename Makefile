@@ -105,6 +105,9 @@ clean: cleanfiles rm
 enter:
 	docker exec -i -t `cat cid` /bin/bash
 
+logs:
+	docker logs -f `cat cid`
+
 steam_username:
 	@while [ -z "$$STEAM_USERNAME" ]; do \
 		read -r -p "Enter the steam username you wish to associate with this container [STEAM_USERNAME]: " STEAM_USERNAME; echo "$$STEAM_USERNAME">>steam_username; cat steam_username; \
