@@ -30,6 +30,7 @@ rundocker:
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
+	-v /exports/serversettings/7dtd:/home/steamer/7DaysToDie/ \
 	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/tcp \
 	-p $(IP):26900:26900/udp \
@@ -60,6 +61,7 @@ debugdocker:
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
+	-v /exports/serversettings/7dtd:/home/steamer/7DaysToDie/ \
 	-v /home/steamer/.steam/:/home/steamer/.steam \
 	-p $(IP):26900:26900/tcp \
 	-p $(IP):26900:26900/udp \
@@ -73,7 +75,6 @@ debugdocker:
 	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
 	-t thalhalla/7daystodie \
 	/bin/bash
-
 
 builddocker:
 	/usr/bin/time -v docker build -t thalhalla/7daystodie .
