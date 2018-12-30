@@ -23,16 +23,21 @@ rundocker:
 	$(eval SERVER_PASSWORD := $(shell cat SERVER_PASSWORD))
 	chmod 777 $(TMP)
 	@docker run --name=$(NAME) \
+	-it \
+	-d \
 	--cidfile="cid" \
 	-v $(TMP):/tmp \
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
 	-v /home/steamer/.steam/:/home/steamer/.steam \
+	-p $(IP):26900:26900/tcp \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
-	-p $(IP):10080:10080/tcp \
-	-p $(IP):10081:10081/tcp \
+	-p $(IP):26902:26902/udp \
+	-p $(IP):10080:8080/tcp \
+	-p $(IP):10081:8081/tcp \
+	-p $(IP):10082:8082/tcp \
 	--env STEAM_USERNAME=`cat steam_username` \
 	--env STEAM_PASSWORD=`cat steam_password` \
 	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
@@ -56,10 +61,13 @@ debugdocker:
 	-v $(shell which docker):/bin/docker \
 	-v /exports/gamedata/7dtd:/home/steamer/.local/share/ \
 	-v /home/steamer/.steam/:/home/steamer/.steam \
+	-p $(IP):26900:26900/tcp \
 	-p $(IP):26900:26900/udp \
 	-p $(IP):26901:26901/udp \
-	-p $(IP):10080:10080/tcp \
-	-p $(IP):10081:10081/tcp \
+	-p $(IP):26902:26902/udp \
+	-p $(IP):10080:8080/tcp \
+	-p $(IP):10081:8081/tcp \
+	-p $(IP):10082:8082/tcp \
 	--env STEAM_USERNAME=`cat steam_username` \
 	--env STEAM_PASSWORD=`cat steam_password` \
 	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
@@ -95,6 +103,9 @@ clean: cleanfiles rm
 enter:
 	docker exec -i -t `cat cid` /bin/bash
 
+logs:
+	docker logs -f `cat cid`
+
 steam_username:
 	@while [ -z "$$STEAM_USERNAME" ]; do \
 		read -r -p "Enter the steam username you wish to associate with this container [STEAM_USERNAME]: " STEAM_USERNAME; echo "$$STEAM_USERNAME">>steam_username; cat steam_username; \
@@ -114,3 +125,6 @@ ip:
 		@while [ -z "$$IP" ]; do \
 			read -r -p "Enter the IP address you wish to associate with this container [IP]: " IP; echo "$$IP">>ip; cat ip; \
 		done ;
+
+smoke:
+	@-echo '<======~'
