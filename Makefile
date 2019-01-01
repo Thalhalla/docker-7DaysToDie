@@ -8,9 +8,9 @@ help:
 
 build: builddocker beep
 
-run: steam_username steam_password ip builddocker rundocker beep
+run: STEAM_USERNAME STEAM_PASSWORD ip builddocker rundocker beep
 
-debug: steam_username steam_password ip builddocker debugdocker
+debug: STEAM_USERNAME STEAM_PASSWORD ip builddocker debugdocker
 
 rundocker:
 	$(eval TMP := $(shell mktemp -d --suffix=DOCKERTMP))
@@ -39,9 +39,8 @@ rundocker:
 	-p $(IP):10080:8080/tcp \
 	-p $(IP):10081:8081/tcp \
 	-p $(IP):10082:8082/tcp \
-	--env STEAM_USERNAME=`cat steam_username` \
-	--env STEAM_PASSWORD=`cat steam_password` \
-	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
+	--env STEAM_USERNAME=${STEAM_USERNAME} \
+	--env STEAM_PASSWORD=${STEAM_PASSWORD} \
 	-t thalhalla/7daystodie
 
 debugdocker:
@@ -70,9 +69,8 @@ debugdocker:
 	-p $(IP):10080:8080/tcp \
 	-p $(IP):10081:8081/tcp \
 	-p $(IP):10082:8082/tcp \
-	--env STEAM_USERNAME=`cat steam_username` \
-	--env STEAM_PASSWORD=`cat steam_password` \
-	--env STEAM_GUARD_CODE=`cat steam_guard_code` \
+	--env STEAM_USERNAME=${STEAM_USERNAME} \
+	--env STEAM_PASSWORD=${STEAM_PASSWORD} \
 	-t thalhalla/7daystodie \
 	/bin/bash
 
@@ -94,8 +92,8 @@ rm-image:
 	-@rm cid
 
 cleanfiles:
-	-@rm steam_username
-	-@rm steam_password
+	-@rm STEAM_USERNAME
+	-@rm STEAM_PASSWORD
 
 rm: kill rm-image
 
@@ -107,9 +105,9 @@ enter:
 logs:
 	docker logs -f `cat cid`
 
-steam_username:
+STEAM_USERNAME:
 	@while [ -z "$$STEAM_USERNAME" ]; do \
-		read -r -p "Enter the steam username you wish to associate with this container [STEAM_USERNAME]: " STEAM_USERNAME; echo "$$STEAM_USERNAME">>steam_username; cat steam_username; \
+		read -r -p "Enter the steam username you wish to associate with this container [STEAM_USERNAME]: " STEAM_USERNAME; echo "$$STEAM_USERNAME">>STEAM_USERNAME; cat STEAM_USERNAME; \
 	done ;
 
 steam_guard_code:
@@ -117,9 +115,9 @@ steam_guard_code:
 		read -r -p "Enter the steam guard code you wish to associate with this container [STEAM_GUARD_CODE]: " STEAM_GUARD_CODE; echo "$$STEAM_GUARD_CODE">>steam_guard_code; cat steam_guard_code; \
 	done ;
 
-steam_password:
+STEAM_PASSWORD:
 	@while [ -z "$$STEAM_PASSWORD" ]; do \
-		read -r -p "Enter the steam password you wish to associate with this container [STEAM_PASSWORD]: " STEAM_PASSWORD; echo "$$STEAM_PASSWORD">>steam_password; cat steam_password; \
+		read -r -p "Enter the steam password you wish to associate with this container [STEAM_PASSWORD]: " STEAM_PASSWORD; echo "$$STEAM_PASSWORD">>STEAM_PASSWORD; cat STEAM_PASSWORD; \
 	done ;
 
 ip:

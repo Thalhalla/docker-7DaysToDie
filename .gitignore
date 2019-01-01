@@ -1,7 +1,7 @@
 cid
-steam_password
-steam_username
-steam_guard_code
+STEAM_PASSWORD
+STEAM_USERNAME
+STEAM_GUARD_CODE
 steamer.txt
 steamer.tmpl
 ip
