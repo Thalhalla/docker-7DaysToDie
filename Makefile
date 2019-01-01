@@ -8,7 +8,7 @@ help:
 
 build: builddocker beep
 
-run: STEAM_USERNAME STEAM_PASSWORD ip builddocker rundocker beep
+run: STEAM_USERNAME STEAM_PASSWORD ip builddocker rm rundocker beep
 
 debug: STEAM_USERNAME STEAM_PASSWORD ip builddocker debugdocker
 
@@ -79,7 +79,7 @@ builddocker:
 
 beep:
 	-@echo "beep"
-	-@aplay /usr/share/sounds/alsa/Front_Center.wav
+	-@if [ -e '/usr/bin/aplay' ]; then aplay /usr/share/sounds/alsa/Front_Center.wav; fi
 
 kill:
 	-@docker kill `cat cid`
