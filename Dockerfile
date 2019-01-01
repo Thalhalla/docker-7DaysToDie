@@ -9,12 +9,6 @@ ENV STEAM_FORCE_INSTALL /home/steamer/7DaysToDie
 ENV STEAM_CMD_PATH /opt/steamer
 
 USER root
-# and override this file with the command to start your server
-COPY assets /assets
-RUN chmod 755 /assets/*.sh && \
-chmod 755 /assets/cfg/*.xml && \
-chmod 755 /assets/steamer.txt && \
-chown -R steamer. /home/steamer
 
 # Install frame buffer via non-interactive apt
 ENV DEBIAN_FRONTEND noninteractive
@@ -23,6 +17,13 @@ apt-get install -yqq telnet xvfb libglu1-mesa libxcursor1 libxrandr2 && \
 rm -rf /var/lib/apt/lists/*
 # End non-interactive apt
 ENV DEBIAN_FRONTEND interactive
+
+# and override this file with the command to start your server
+COPY assets /assets
+RUN chmod 755 /assets/*.sh && \
+chmod 755 /assets/cfg/*.xml && \
+chmod 755 /assets/steamer.txt && \
+chown -R steamer. /home/steamer
 
 USER steamer
 WORKDIR /opt/steamer
